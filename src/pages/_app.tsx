@@ -1,7 +1,20 @@
 import type { AppProps } from "next/app";
+import Image from "next/future/image";
+import { globalStyles } from "../styles/global";
 
-function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />;
+import logo from "../assets/logo.svg";
+import { Container, Header } from "../styles/pages/app";
+
+globalStyles();
+
+export default function App({ Component, pageProps }: AppProps) {
+	return (
+		<Container>
+			<Header>
+				<Image src={logo} alt="" />
+			</Header>
+
+			<Component {...pageProps} />
+		</Container>
+	);
 }
-
-export default MyApp;
